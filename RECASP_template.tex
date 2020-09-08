@@ -1,0 +1,177 @@
+\documentclass[12pt]{extarticle}
+\usepackage[inner=3.18cm,outer=3.18cm, top=2.9cm, bottom=2.9cm]{geometry}
+
+
+\usepackage{xpatch}
+\usepackage{amsmath}
+\usepackage{graphicx}
+%\usepackage{scrextend}
+\usepackage[labelfont=bf]{caption}
+\usepackage{tabulary}
+\usepackage{array}
+\usepackage{hyperref}
+\hypersetup{
+citecolor = black,
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue,
+}
+\urlstyle{same} 
+%\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{afterpage}
+%\deffootnote[1em]{1em}{1em}{\textsuperscript{\thefootnotemark}\,}
+\usepackage{varwidth}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{varwidth}
+\usepackage{multicol}
+\date{}
+\usepackage{lettrine}
+
+\usepackage[all]{nowidow}
+
+
+\usepackage{parskip}
+\usepackage[strict]{changepage}
+
+% Fonts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+% Header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{colordvi}
+%\definecolor{Myblue}{rgb}{0.3,0.6,1}
+
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz} 
+\usetikzlibrary{calc}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\chead{\parbox[b][0mm][c]{16cm}{\colorbox{NavyBlue}{\makebox[15cm][c]{\vrule height 0.4cm depth 0.1cm width 0pt \textcolor{white}{\bfseries  Manuscript	Title}}}}}
+\lhead{}
+\rhead{}
+
+\renewcommand{\headrulewidth}{0pt}
+
+% Bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[style=authoryear,
+			eprint=false,
+			isbn=false,
+			doi=false,
+			url=false,
+			maxbibnames=99,
+			backend=biber]{biblatex}
+
+\xpatchbibmacro{date+extrayear}{%
+  \printtext[parens]%
+}{%
+  \setunit{\addperiod\space}%
+  \printtext%
+}{}{}
+
+\addbibresource{bib.bib} 
+\usepackage{titlesec}
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\normalsize\bfseries}
+
+\newcommand{\appropto}{\mathrel{\vcenter{
+  \offinterlineskip\halign{\hfil$##$\cr
+    \propto\cr\noalign{\kern2pt}\sim\cr\noalign{\kern-2pt}}}}}
+
+
+\usepackage{setspace}
+\setstretch{1.1}
+
+\begin{document}
+
+
+
+\begin{tikzpicture}[remember picture,overlay]
+   \node[xshift=6.5cm,yshift=-4cm] at (current page.north west)
+              {\includegraphics[scale= 1]{recasp.png}};
+\end{tikzpicture}
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+\begin{adjustwidth}{-5em}{0em}
+
+
+
+{\fontfamily{qtm}\selectfont 
+\underline{\smash{\small \textbf{Suggested citation:}}} 
+
+
+\footnotesize Filled in by \textit{RECASP} editors
+}
+
+\end{adjustwidth}
+
+
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+{\fontfamily{qtm}\selectfont 
+\centerline{ \huge{ \textbf{Putting Power Back Into Growth Theory}\Large \footnotemark}}
+}
+
+
+
+\footnotetext{ Thank-you and bio
+}
+
+\bigskip
+\bigskip
+
+
+\centerline{ \Large AUTHOR NAME}
+
+\bigskip
+\bigskip
+\bigskip
+
+\thispagestyle{fancy}
+
+\bigskip
+\bigskip
+\bigskip
+
+
+\noindent \textbf{Abstract}
+
+
+Your abstract here
+
+\bigskip
+
+{\fontfamily{qtm}\selectfont 
+\textbf{Keywords}: key; words}
+
+\bigskip
+\bigskip
+
+
+\newpage
+
+\lettrine[lines=3]{F}{irst } word ... and then your paper. 
+
+
+%\printbibliography
+
+
+
+
+
+
+\end{document}
