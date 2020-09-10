@@ -4,7 +4,7 @@ Use this template for submitting manuscripts to the [*Review of Capital as Power
 
 To use, compile with:
 
-* pdflatex
-* bibtex
+* `pdflatex`
+* `bibtex`
 
 
