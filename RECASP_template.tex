@@ -1,141 +1,25 @@
 \documentclass[12pt]{extarticle}
 \usepackage[inner=3.18cm,outer=3.18cm, top=2.9cm, bottom=2.9cm]{geometry}
-
-
-\usepackage{xpatch}
-\usepackage{amsmath}
-\usepackage{graphicx}
-%\usepackage{scrextend}
-\usepackage[labelfont=bf]{caption}
-\usepackage{tabulary}
-\usepackage{array}
-\usepackage{hyperref}
-\hypersetup{
-citecolor = black,
-  colorlinks=true,
-  linkcolor=black,
-  urlcolor=blue,
-}
-\urlstyle{same} 
-%\usepackage{enumerate}
-\usepackage{enumitem}
-\usepackage{afterpage}
-%\deffootnote[1em]{1em}{1em}{\textsuperscript{\thefootnotemark}\,}
-\usepackage{varwidth}
-\usepackage{array}
-\usepackage{enumitem}
-\usepackage{varwidth}
-\usepackage{multicol}
-\date{}
-\usepackage{lettrine}
-
-\usepackage[all]{nowidow}
-
-
-\usepackage{parskip}
-\usepackage[strict]{changepage}
-
-% Fonts
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[bitstream-charter]{mathdesign}
-\usepackage[T1]{fontenc}
-
-% Header
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\usepackage{colordvi}
-%\definecolor{Myblue}{rgb}{0.3,0.6,1}
-
-
-\usepackage[usenames,dvipsnames]{xcolor}
-\usepackage{tikz} 
-\usetikzlibrary{calc}
-
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\chead{\parbox[b][0mm][c]{16cm}{\colorbox{NavyBlue}{\makebox[15cm][c]{\vrule height 0.4cm depth 0.1cm width 0pt \textcolor{white}{\bfseries  Manuscript	Title}}}}}
-\lhead{}
-\rhead{}
-
-\renewcommand{\headrulewidth}{0pt}
-
-% Bibliography
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[style=authoryear,
-			eprint=false,
-			isbn=false,
-			doi=false,
-			url=false,
-			maxbibnames=99,
-			backend=biber]{biblatex}
-
-\xpatchbibmacro{date+extrayear}{%
-  \printtext[parens]%
-}{%
-  \setunit{\addperiod\space}%
-  \printtext%
-}{}{}
-
-\addbibresource{bib.bib} 
-\usepackage{titlesec}
-\titleformat*{\section}{\large\bfseries}
-\titleformat*{\subsection}{\normalsize\bfseries}
-
-\newcommand{\appropto}{\mathrel{\vcenter{
-  \offinterlineskip\halign{\hfil$##$\cr
-    \propto\cr\noalign{\kern2pt}\sim\cr\noalign{\kern-2pt}}}}}
-
-
-\usepackage{setspace}
-\setstretch{1.1}
+\usepackage{preamble}
 
 \begin{document}
+\input{frontmatter}
 
-
-
-\begin{tikzpicture}[remember picture,overlay]
-   \node[xshift=6.5cm,yshift=-4cm] at (current page.north west)
-              {\includegraphics[scale= 1]{recasp.png}};
-\end{tikzpicture}
-
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-
-\begin{adjustwidth}{-5em}{0em}
-
-
-
+% TITLE
 {\fontfamily{qtm}\selectfont 
-\underline{\smash{\small \textbf{Suggested citation:}}} 
-
-
-\footnotesize Filled in by \textit{RECASP} editors
-}
-
-\end{adjustwidth}
-
-
-
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-
-{\fontfamily{qtm}\selectfont 
-\centerline{ \huge{ \textbf{Putting Power Back Into Growth Theory}\Large \footnotemark}}
-}
-
-
-
-\footnotetext{ Thank-you and bio
+\centerline{ \huge{ \textbf{Title}\Large}
 }
 
 \bigskip
 \bigskip
 
+% AUTHOR NAME
+% leave blank for peer review copy
+\centerline{ \Large AUTHOR NAME\footnotemark}
 
-\centerline{ \Large AUTHOR NAME}
+% BIO
+% leave blank for peer review copy
+\footnotetext{Author info}
 
 \bigskip
 \bigskip
@@ -147,35 +31,85 @@ citecolor = black,
 \bigskip
 \bigskip
 
-
+% ABSTRACT
 \noindent \textbf{Abstract}
 
-
-Your abstract here
+Your abstract here.
 
 \bigskip
 
-{\fontfamily{qtm}\selectfont 
-\textbf{Keywords}: key; words}
+\textbf{Keywords}: key; words
 
 \bigskip
 \bigskip
-
-
 \newpage
 
 \section{Introduction}
 
-\lettrine[lines=3]{F}{irst } word ... and then your paper. 
+\lettrine[lines=3]{F}{irst} word \lipsum[1]
+
+\lipsum[1]
+
+\section{Methods}
+\lipsum[1]
+
+\begin{equation}
+K = \frac{E}{r}
+\end{equation}
+
+\section{Discussion}
+\lipsum[1]
+
+\section{Conclusions}
+\lipsum[1]
 
 
+\newpage
+% BIBLIOGRAPHY
+% either compile with bibtex and paste your bbl contents below,
+% or uncomment \bibliography{bib_file} and enter your bib file
+%\bibliography{your_bib}{}
 
-
-%\printbibliography
-
-
-
-
-
+\begin{thebibliography}{6}
+	\providecommand{\natexlab}[1]{#1}
+	\expandafter\ifx\csname urlstyle\endcsname\relax
+	\providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+	\providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+		\urlstyle{rm}\Url}\fi
+	
+	\bibitem[{Baines(2014)}]{baines_food_2014}
+	Baines, Joseph. 2014.
+	\newblock Food price inflation as redistribution: towards a new analysis of
+	corporate power in the world food system.
+	\newblock \emph{New Political Economy} 19(1):79--112.
+	
+	\bibitem[{Cochrane(2010)}]{cochrane_death_2010}
+	Cochrane, D.T. 2010.
+	\newblock Death Grip: Scapegoating the Subprime Loser.
+	\newblock \emph{SCAPEGOAT Architecture/ Landscape/Political Economy} (00):6--8.
+	
+	\bibitem[{Fix(2015)}]{fix_putting_2015}
+	Fix, Blair. 2015.
+	\newblock Putting Power Back into Growth Theory.
+	\newblock \emph{Review of Capital as Power} 1(2):1--37.
+	
+	\bibitem[{Hager(2014)}]{hager_what_2014}
+	Hager, Sandy~Brian. 2014.
+	\newblock What happened to the bondholding class? Public debt, power and the
+	top one per cent.
+	\newblock \emph{New Political Economy} 19(2):155--182.
+	
+	\bibitem[{McMahon(2018)}]{mcmahon_is_2018}
+	McMahon, James. 2018.
+	\newblock Is {Hollywood} a Risky Business? A Political Economic Analysis of
+	Risk and Creativity.
+	\newblock \emph{New Political Economy} :1--23.
+	
+	\bibitem[{Nitzan and Bichler(2009)}]{nitzan_capital_2009}
+	Nitzan, Jonathan and Bichler, Shimshon. 2009.
+	\newblock \emph{Capital as Power: A Study of Order and Creorder}.
+	\newblock New York: Routledge.
+	
+\end{thebibliography}
 
 \end{document}
