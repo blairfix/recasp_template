@@ -1,5 +1,4 @@
 \documentclass[12pt]{extarticle}
-\usepackage[inner=3.18cm,outer=3.18cm,top=2.9cm,bottom=2.9cm]{geometry}
 \usepackage{preamble}
 
 \begin{document}
@@ -53,12 +52,43 @@ Your abstract here.
 \section{Methods}
 \lipsum[1]
 
+% EQUATION
 \begin{equation}
 K = \frac{E}{r}
 \end{equation}
 
+% FIGURE WITH CAPTION AND NOTES
+\begin{figure}
+	\centerline{\includegraphics[scale= 0.15]{fig_14.2.png}}
+	\caption{Differential capitalization and differential net profit in the United States}
+	\label{fig_diff_capital}
+	
+	\small
+	\smallskip
+	
+	This figure is from \cite{nitzan_capital_2009}. \\
+	
+	 * Ratio between the average market capitalization of the top 100 Compustat corporations (ranked annually by market capitalization) and the average market capitalization of all US listed corporations. \\
+	
+	** Ratio between the average net profit of the top 100 Compustat corporations (ranked annually by market capitalization) and the average net profit of all US corporations (listed and unlisted). The number of US corporations for 2004–2006 is extrapolated based on recent growth rates. \\
+	
+	Source: Compustat compann file through WRDS (series codes: data25 for common shares outstanding; data199 for share price; data172 for net income); Global Financial Data (number of listed corporations on the NYSE, AMEX and NASDAQ till 1989); World Federation of Exchanges (number of listed corporations on the NYSE, AMEX and NASDAQ from 1990); U.S. Internal Revenue Service (number of corporate tax returns for active corporations); U.S. Federal Reserve Board’s Flow of Funds through Global Insight (FL893064105 for market value of corporate equities); U.S. Bureau of Economic Analysis through Global Insight (ZA for profit after taxes).	
+	
+\end{figure}
+
+% REFERENCE YOUR FIGURE
+This is a reference to Figure \ref{fig_diff_capital}, which shows the differential capitalization and net profit of dominant capital in the United States.
+
+
+
+
 \section{Discussion}
 \lipsum[1]
+
+% A BLOCK QUOTE
+\begin{quote}
+\lipsum[1]
+\end{quote}
 
 \section{Conclusions}
 \lipsum[1]
