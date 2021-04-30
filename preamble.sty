@@ -23,7 +23,6 @@
 \usepackage{lettrine}
 \usepackage{lipsum}
 \usepackage[all]{nowidow}
-\usepackage{parskip}
 \usepackage{tabulary}
 \usepackage{tikz} 
 \usetikzlibrary{calc}
@@ -44,17 +43,25 @@
 	\textcolor{white}{\bfseries  Draft for Review}}}}
 \lhead{}
 \rhead{}
-\setlength{\headheight}{16pt}
+\setlength{\headheight}{23pt}
 \renewcommand{\headrulewidth}{0pt}
 
 % title formating
-\usepackage{titlesec}
+\usepackage[compact]{titlesec}
 \titleformat*{\section}{\large\bfseries}
 \titleformat*{\subsection}{\normalsize\bfseries}
 
-% paragraph space
+% line spacing
 \usepackage{setspace}
 \setstretch{1.1}
+
+% paragraph spacing
+\usepackage{parskip}
+\setlength{\parskip}{8pt}
+
+% horizontal tolerance
+\tolerance=800
+
 
 % bibliography
 \usepackage[sort]{natbib}
