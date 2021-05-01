@@ -2,7 +2,15 @@
 \usepackage{preamble}
 
 \begin{document}
-\input{frontmatter}
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+   \node[xshift=6.5cm,yshift=-2cm] at (current page.north west)
+              {\includegraphics[scale= 1]{banner.pdf}};
+\end{tikzpicture}
+
+\bigskip
+\bigskip
 
 % TITLE
 {\fontfamily{qtm}\selectfont
@@ -15,21 +23,23 @@
 \bigskip
 \bigskip
 
+\centerline{\includegraphics[scale=0.25]{divider}}
+
+\bigskip
+\bigskip
+
 % AUTHOR NAME
 % leave blank for peer review copy
-\centerline{ \Large AUTHOR NAME\footnotemark}
+\centerline{ \large AUTHOR NAME\footnotemark}
+
+\bigskip
+
+\centerline{ date-here }
 
 % BIO
 % leave blank for peer review copy
 \footnotetext{Author info}
 
-\bigskip
-\bigskip
-\bigskip
-
-\thispagestyle{fancy}
-
-\bigskip
 \bigskip
 \bigskip
 
@@ -41,6 +51,12 @@ Your abstract here.
 \bigskip
 
 \textbf{Keywords}: key; words
+
+\bigskip
+
+\textbf{Citation}:
+
+suggested-citation
 
 \bigskip
 \bigskip
