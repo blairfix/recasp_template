@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% merlin.mbs  (with options: `ay,nat,nm-revf,jnrlst,keyxyr,dt-beg,yr-per,yrp-per,note-yr,atit-u,pp-last,num-xser,jnm-x,add-pub,pre-pub,isbn,issn,doi,pp,xedn,etal-it,nfss,')
+%% merlin.mbs  (with options: `ay,nat,nm-revf,jnrlst,keyxyr,dt-beg,yr-per,yrp-per,note-yr,atit-u,pp-last,num-xser,jnm-x,add-pub,pre-pub,isbn,issn,doi,pp,xedn,etal-it,url,url-blk,nfss,')
 %% ----------------------------------------
 %% ***  ***
 %% 
@@ -76,6 +76,7 @@ ENTRY
     series
     title
     type
+    url
     volume
     year
   }
@@ -355,6 +356,15 @@ FUNCTION {bibinfo.warn}
     }
   if$
 }
+FUNCTION {format.url}
+{
+  url
+  duplicate$ empty$
+    { pop$ "" }
+    { "\urlprefix\url{" swap$ * "}" * }
+  if$
+}
+
 INTEGERS { nameptr namesleft numnames }
 
 
@@ -960,6 +970,8 @@ FUNCTION {article}
   format.issn output
   format.doi output
   new.block
+  format.url output
+  new.block
   format.note output
   fin.entry
 }
@@ -995,6 +1007,8 @@ FUNCTION {book}
   format.isbn output
   format.doi output
   new.block
+  format.url output
+  new.block
   format.note output
   fin.entry
 }
@@ -1010,6 +1024,8 @@ FUNCTION {booklet}
   address "address" bibinfo.check output
   format.isbn output
   format.doi output
+  new.block
+  format.url output
   new.block
   format.note output
   fin.entry
@@ -1054,6 +1070,8 @@ FUNCTION {inbook}
   format.pages "pages" output.check
   format.doi output
   new.block
+  format.url output
+  new.block
   format.note output
   fin.entry
 }
@@ -1082,6 +1100,8 @@ FUNCTION {incollection}
   if$
   format.pages "pages" output.check
   format.doi output
+  new.block
+  format.url output
   new.block
   format.note output
   fin.entry
@@ -1114,6 +1134,8 @@ FUNCTION {inproceedings}
   format.pages "pages" output.check
   format.doi output
   new.block
+  format.url output
+  new.block
   format.note output
   fin.entry
 }
@@ -1130,6 +1152,8 @@ FUNCTION {manual}
   address "address" bibinfo.check output
   format.edition output
   format.doi output
+  new.block
+  format.url output
   new.block
   format.note output
   fin.entry
@@ -1149,6 +1173,8 @@ FUNCTION {mastersthesis}
   address "address" bibinfo.check output
   format.doi output
   new.block
+  format.url output
+  new.block
   format.note output
   fin.entry
 }
@@ -1163,6 +1189,8 @@ FUNCTION {misc}
   new.block
   howpublished "howpublished" bibinfo.check output
   format.doi output
+  new.block
+  format.url output
   new.block
   format.note output
   fin.entry
@@ -1180,6 +1208,8 @@ FUNCTION {phdthesis}
   school "school" bibinfo.warn output
   address "address" bibinfo.check output
   format.doi output
+  new.block
+  format.url output
   new.block
   format.note output
   fin.entry
@@ -1205,6 +1235,8 @@ FUNCTION {proceedings}
   format.issn output
   format.doi output
   new.block
+  format.url output
+  new.block
   format.note output
   fin.entry
 }
@@ -1223,6 +1255,8 @@ FUNCTION {techreport}
   address "address" bibinfo.check output
   format.doi output
   new.block
+  format.url output
+  new.block
   format.note output
   fin.entry
 }
@@ -1235,6 +1269,8 @@ FUNCTION {unpublished}
   date.block
   format.title "title" output.check
   format.doi output
+  new.block
+  format.url output
   new.block
   format.note "note" output.check
   fin.entry
@@ -1525,6 +1561,10 @@ FUNCTION {begin.bib}
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
   write$ newline$
   "\providecommand{\natexlab}[1]{#1}"
+  write$ newline$
+  "\providecommand{\url}[1]{\texttt{#1}}"
+  write$ newline$
+  "\providecommand{\urlprefix}{URL }"
   write$ newline$
   "\expandafter\ifx\csname urlstyle\endcsname\relax"
   write$ newline$
