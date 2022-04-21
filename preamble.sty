@@ -6,7 +6,8 @@
 \usepackage{afterpage}
 \usepackage{amsmath}
 \usepackage{array}
-\usepackage[font=bf]{caption}
+\usepackage{booktabs}
+\usepackage[font=bf,hang,justification=raggedright]{caption}
 \usepackage[strict]{changepage}
 \usepackage{enumitem}
 \usepackage{graphicx}
@@ -24,7 +25,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lettrine}
 \usepackage{lipsum}
-\usepackage[all]{nowidow}
+\usepackage{longtable}
+\usepackage[defaultlines=4,all]{nowidow}
+\usepackage{placeins}
 \usepackage{tabulary}
 \usepackage{tikz} 
 \usetikzlibrary{calc}
@@ -50,8 +53,8 @@
 
 % title formating
 \usepackage{titlesec}
-\titleformat*{\section}{\large\bfseries}
-\titleformat*{\subsection}{\normalsize\bfseries}
+\titleformat*{\section}{\large\bfseries\raggedright}
+\titleformat*{\subsection}{\normalsize\bfseries\raggedright}
 
 % title color
 \definecolor{titlecolor}{rgb}{0.6, 0.0, 0.0}
@@ -66,6 +69,12 @@
 
 % horizontal tolerance
 \tolerance=800
+
+% left table column with width
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% centered table column with width
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 
 % bibliography
