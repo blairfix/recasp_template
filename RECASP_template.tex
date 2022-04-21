@@ -5,7 +5,7 @@
 \thispagestyle{empty}
 
 \begin{tikzpicture}[remember picture,overlay]
-   \node[xshift=6.5cm,yshift=-2cm] at (current page.north west)
+    \node[xshift=6.5cm,yshift=-2cm] at (current page.north west)
               {\includegraphics[scale= 1]{banner.pdf}};
 \end{tikzpicture}
 
@@ -13,13 +13,23 @@
 
 % TITLE
 %------------------------------------------------------
-{\fontfamily{qtm}\selectfont
-\color{titlecolor}
-\centerline{\huge{\textbf{Title}}}
-%\centerline{\LARGE{\textbf{long_title1}}}
-%\centerline{\LARGE{\textbf{long_title2}}} 
-\bigskip
-\centerline{\Large{\textbf{Subtitle}}}
+{
+    
+    \fontfamily{qtm}\selectfont
+    \color{titlecolor}
+    \centering
+
+    \bfseries
+    \huge
+
+    Title
+
+    \bigskip
+
+    \Large 
+
+    Subtitle
+
 }
 
 \bigskip
